@@ -44,3 +44,32 @@ Folder structure:
 -   **`themes`**: Dark/Light theme of application.
 
 The other files (such as `.prettierrc`, `tsconfig.json`) are configurations for libraries used in your application. Visit the library's documentation to learn how to use them.
+
+## Update Library
+
+### Changing restaurant's name
+
+Change the background in `node_modules/react-native-raw-bottom-sheet/src/index.js`:
+
+```js
+<BlurViewAnimated
+    blurType={'light'}
+    onTouchStart={() => (closeOnPressMask ? this.close() : null)}
+    style={[
+        StyleSheet.absoluteFillObject,
+        {
+            opacity: animatedHeight.interpolate({inputRange: [0, height], outputRange: [0, 1], extrapolate: 'clamp'})
+        }
+    ]}
+/>
+```
+
+and wrapper style in `node_modules/react-native-raw-bottom-sheet/src/styles.js`:
+
+```js
+wrapper: {
+    backgroundColor: "#00000077",
+    flex: 1,
+    justifyContent: 'flex-end',
+}
+```
